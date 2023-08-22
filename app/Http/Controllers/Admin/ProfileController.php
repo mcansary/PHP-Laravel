@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    //
+    //【PHP/Laravel】03　課題4.5で追加
     public function add()
     {
         return view('admin.profile.create');

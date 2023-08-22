@@ -1,3 +1,5 @@
+{{--【PHP/Laravel】05 課題3でファイル作成 --}}
+
 <!DOCTYPE html>
 <html>
     <head>
