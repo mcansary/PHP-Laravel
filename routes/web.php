@@ -24,10 +24,10 @@ Route::controller(NewsController::class)->prefix('admin')->group(function() {
 });
 
 // 【PHP/Laravel】04　課題3
-use App\Http\Controllers\AAAController;
-Route::controller(AAAController::class)->group(function() {
-    Route::get('XXX', 'bbb');
-});
+// use App\Http\Controllers\AAAController;
+// Route::controller(AAAController::class)->group(function() {
+//     Route::get('XXX', 'bbb');
+// });
 
 // 【PHP/Laravel】04　課題4
 use App\Http\Controllers\Admin\ProfileController;
