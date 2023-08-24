@@ -17,10 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// NewsController
+// NewsController　【PHP/Laravel】07中でmiddlewareを追加
 use App\Http\Controllers\Admin\NewsController;
 Route::controller(NewsController::class)->prefix('admin')->group(function() {
-    Route::get('news/create', 'add');
+    Route::get('news/create', 'add')->middleware('auth');
 });
 
 // 【PHP/Laravel】04　課題3
