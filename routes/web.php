@@ -18,10 +18,14 @@ Route::get('/', function () {
 });
 
 // NewsController　【PHP/Laravel】07中でmiddlewareを追加
-use App\Http\Controllers\Admin\NewsController;
-Route::controller(NewsController::class)->prefix('admin')->group(function() {
-    Route::get('news/create', 'add')->middleware('auth');
+Route::group(['prefix' => 'admin'],function() {
+    Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
 });
+/*use App\Http\Controllers\Admin\NewsController;
+|Route::controller(NewsController::class)->prefix('admin')->group(function() {
+|    Route::get('news/create', 'add')->middleware('auth');
+|});
+*/
 
 // 【PHP/Laravel】04　課題3
 // use App\Http\Controllers\AAAController;
