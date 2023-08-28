@@ -1,4 +1,3 @@
-<!----【PHP/Laravel】07中で作成>
 <?php
 
 return [
