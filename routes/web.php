@@ -21,9 +21,12 @@ Route::get('/', function () {
 // Route::group(['prefix' => 'admin'],function() {
 //     Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
 // });
+
+// 【PHP/Laravel】08内でRouting を編集
 use App\Http\Controllers\Admin\NewsController;
-Route::controller(NewsController::class)->prefix('admin')->group(function() {
-    Route::get('news/create', 'add')->middleware('auth');
+Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::get('news/create', 'add')->name('news.add');
+    Route::post('news/create', 'create')->name('news.create');
 });
 
 // 【PHP/Laravel】04　課題3
