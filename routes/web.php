@@ -40,6 +40,8 @@ use App\Http\Controllers\Admin\ProfileController;
 Route::controller(ProfileController::class)->group(function() {
     Route::get('admin/profile/create', 'add')->middleware('auth');
     Route::get('admin/profile/edit', 'edit')->middleware('auth');
+    // 【PHP/Laravel】08課題3で追記
+    Route::post('admin/profile/create', 'create')->name('profile.create');
 });
 
 

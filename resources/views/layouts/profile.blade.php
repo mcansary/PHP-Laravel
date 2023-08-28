@@ -36,7 +36,7 @@
                         <ul class="navbar-nav ms-auto">
 
                         </ul>
-                            <!-- Right Side Of Navbar -->
+                            <!-- Right Side Of Navbar 【PHP/Laravel】07課題1で追記-->
                         <ul class="navbar-nav">
 
                         {{-- 以下を追記 --}}
