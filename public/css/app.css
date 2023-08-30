@@ -1247,6 +1247,10 @@ progress {
     flex: 0 0 auto;
     width: 83.33333333%;
   }
+  /*gender-marginは【PHP/Laravel】08課題4で自作*/
+  .gender-margin {
+    margin-left: 15px;
+  }
   .col-md-11 {
     flex: 0 0 auto;
     width: 91.66666667%;

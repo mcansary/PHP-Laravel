@@ -22,12 +22,23 @@ Route::get('/', function () {
 //     Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
 // });
 
+// use App\Http\Controllers\Admin\NewsController;
+// Route::controller(NewsController::class)->prefix('admin')->group(function() {
+//     Route::get('news/create', 'add');
+// });
+// // ↑↑↑書き換えられるようになりましょう↓↓↓
+// Route::get('/admin/news/create', [NewsController::class, 'add']);
+
 // 【PHP/Laravel】08内でRouting を編集
 use App\Http\Controllers\Admin\NewsController;
 Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('news/create', 'add')->name('news.add');
     Route::post('news/create', 'create')->name('news.create');
 });
+// ↑↑↑書き換え↓↓↓
+// use App\Http\Controllers\Admin\NewsController;
+// Route::get('/admin/news/create', [NewsController::class, 'add'])->name('news.add');
+// Route::post('/admin/news/create', [NewsController::class, 'create'])->name('news.create');
 
 // 【PHP/Laravel】04　課題3
 // use App\Http\Controllers\AAAController;
@@ -41,8 +52,16 @@ Route::controller(ProfileController::class)->group(function() {
     Route::get('admin/profile/create', 'add')->middleware('auth');
     Route::get('admin/profile/edit', 'edit')->middleware('auth');
     // 【PHP/Laravel】08課題3で追記
-    Route::post('admin/profile/create', 'create')->name('profile.create');
+    Route::post('admin/profile/create', 'create')->middleware('auth');
+    // 【PHP/Laravel】08課題6で追記
+    Route::post('admin/profile/edit', 'update')->middleware('auth');
 });
+//↑↑↑書き換え↓↓↓
+// use App\Http\Controllers\Admin\ProfileController;
+// Route::get('/admin/profile/create', [ProfileController::class, 'add'])->middleware('auth');
+// Route::get('/admin/profile/edit', [ProfileController::class, 'edit'])->middleware('auth');
+// Route::post('admin/profile/create', [ProfileController::class, 'create'])->middleware('auth');
+// Route::post('admin/profile/edit', [ProfileController::class, 'update'])->middleware('auth');
 
 
 Auth::routes();
