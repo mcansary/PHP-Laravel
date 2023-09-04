@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // ニュースのタイトルを保存するカラム
-            $table->string('gender');  // ニュースの本文を保存するカラム
+            $table->string('name'); 
+            $table->string('gender');  
             $table->string('hobby');
             $table->string('introduction');
             $table->timestamps();
