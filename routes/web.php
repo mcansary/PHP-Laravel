@@ -53,7 +53,7 @@ Route::controller(ProfileController::class)->group(function() {
     Route::get('admin/profile/create', 'add')->middleware('auth');
     Route::get('admin/profile/edit', 'edit')->middleware('auth');
     // 【PHP/Laravel】08課題3で追記
-    Route::post('admin/profile/create', 'create')->middleware('auth');
+    Route::post('admin/profile/create', 'create')->middleware('auth')->name('admin.profile.create');
     // 【PHP/Laravel】08課題6で追記
     Route::post('admin/profile/edit', 'update')->middleware('auth');
 });

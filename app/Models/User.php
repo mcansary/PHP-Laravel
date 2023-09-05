@@ -42,3 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 }
+/*【PHP/Laravel】09②内で保存コードを追記*/
+// User::create([
+//             'name' => '森本',
+//             'email' => 'morimoto@tech.com',
+//             'password' => Hash::make("pass"),
+//       ]);

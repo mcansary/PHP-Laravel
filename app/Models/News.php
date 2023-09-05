@@ -12,7 +12,7 @@ class News extends Model
     protected $guarded = array('id');
 
     public static $rules = array(
-        'title' => 'required|unique:posts|max:255',
+        'title' => 'required|unique:news|max:255',
         'body' => 'required',
     );
 }
