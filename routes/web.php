@@ -40,6 +40,7 @@ Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middl
 // use App\Http\Controllers\Admin\NewsController;
 // Route::get('/admin/news/create', [NewsController::class, 'add'])->name('news.add');
 // Route::post('/admin/news/create', [NewsController::class, 'create'])->name('news.create');
+// Route::post('/admin/news/index', [NewsController::class, 'index'])->name('news.index');
 
 // 【PHP/Laravel】04　課題3
 // use App\Http\Controllers\AAAController;
@@ -55,7 +56,7 @@ Route::controller(ProfileController::class)->group(function() {
     // 【PHP/Laravel】08課題3で追記
     Route::post('admin/profile/create', 'create')->middleware('auth')->name('admin.profile.create');
     // 【PHP/Laravel】08課題6で追記
-    Route::post('admin/profile/edit', 'update')->middleware('auth');
+    Route::post('admin/profile/edit', 'update')->middleware('auth')->name('admin.profile.edit');
 });
 //↑↑↑書き換え↓↓↓
 // use App\Http\Controllers\Admin\ProfileController;
