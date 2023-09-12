@@ -12,7 +12,13 @@ class News extends Model
     protected $guarded = array('id');
 
     public static $rules = array(
-        'title' => 'required|unique:news|max:255',
+        'title' => 'required',
         'body' => 'required',
     );
+    
+    // News Modelに関連付けを行う（【PHP/Laravel】12内で追記）
+    public function histories()
+    {
+        return $this->hasMany('App\Models\History');
+    }
 }
