@@ -54,12 +54,14 @@ Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middl
 // 【PHP/Laravel】04　課題4/middleware('auth')を【PHP/Laravel】07課題2で追記
 use App\Http\Controllers\Admin\ProfileController;
 Route::controller(ProfileController::class)->group(function() {
-    Route::get('admin/profile/create', 'add')->middleware('auth');
-    Route::get('admin/profile/edit', 'edit')->middleware('auth');
+    Route::get('admin/profile/create', 'add')->middleware('auth')->name('admin.profile.add');
+    Route::get('admin/profile/edit', 'edit')->middleware('auth')->name('admin.profile.edit');
     // 【PHP/Laravel】08課題3で追記
     Route::post('admin/profile/create', 'create')->middleware('auth')->name('admin.profile.create');
     // 【PHP/Laravel】08課題6で追記
-    Route::post('admin/profile/edit', 'update')->middleware('auth')->name('admin.profile.edit');
+    Route::post('admin/profile/edit', 'update')->middleware('auth')->name('admin.profile.update');
+    Route::get('admin/profile/index', 'index')->middleware('auth')->name('admin.profile.index');
+    Route::get('admin/profile/delete', 'delete')->middleware('auth')->name('admin.profile.delete');
 });
 //↑↑↑書き換え↓↓↓
 // use App\Http\Controllers\Admin\ProfileController;
