@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // ↓【PHP/Laravel】09　課題7で追記
 use App\Models\Profile;
+// 以下を【PHP/Laravel】12課題で追記
+use App\Models\ProfileHistory;
+// 以下を【PHP/Laravel】12課題で追記
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
@@ -70,7 +74,13 @@ class ProfileController extends Controller
         // 該当するデータを上書きして保存する
         $profile->fill($profile_form)->save();
         
-        return redirect('admin/profile/create');
+        // 以下を【PHP/Laravel】12課題で追記
+        $profile_history = new ProfileHistory();
+        $profile_history->profile_id = $profile->id;
+        $profile_history->edited_at = Carbon::now();
+        $profile_history->save();
+        
+        return redirect('admin/profile/index');
     }
     
     // 以下を追記
